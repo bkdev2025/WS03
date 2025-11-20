@@ -13,12 +13,7 @@
 
 <style>
 
-/*  
-==========================================
-        VISION PRO GLOBAL STYLE
-==========================================
-*/
-
+/* GLOBAL VISION PRO LOOK */
 :root {
     --bg: #0b0b0d;
     --text: #f6f7fb;
@@ -27,41 +22,24 @@
     --glow: rgba(80,130,255,0.55);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     background: var(--bg);
     font-family: "SF Pro Text", sans-serif;
     color: var(--text);
     overflow-x: hidden;
-    perspective: 2000px;
 }
 
-/*  
-==========================================
-        VISION PRO NAVIGATION
-==========================================
-*/
-
+/* NAV */
 nav {
     position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 60px;
+    top: 0; width: 100%; height: 60px;
     backdrop-filter: blur(25px);
-    background: rgba(20, 20, 26, 0.45);
+    background: rgba(20,20,26,0.45);
     border-bottom: 1px solid var(--glass-border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; z-index: 1000;
 }
-
 nav .menu a {
     color: var(--text);
     margin-left: 25px;
@@ -70,308 +48,208 @@ nav .menu a {
     text-decoration: none;
     transition: 0.3s;
 }
+nav .menu a:hover { opacity: 1; }
 
-nav .menu a:hover {
-    opacity: 1;
-}
-
-/*  
-==========================================
-        VISION PRO HERO SECTION
-==========================================
-*/
-
+/* HERO */
 .hero {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    position: relative;
+    display: flex; flex-direction: column;
+    justify-content: center; text-align: center;
+    padding: 0 20px; position: relative;
 }
-
 .hero h1 {
     font-size: 4.5rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 20px; font-weight: 600;
     text-shadow: 0 0 40px rgba(255,255,255,0.4);
 }
-
 .hero p {
-    font-size: 1.3rem;
-    opacity: 0.8;
-    max-width: 650px;
-    margin: 0 auto;
+    font-size: 1.3rem; opacity: 0.8;
+    max-width: 650px; margin: 0 auto;
 }
-
 .hero img {
-    width: 65%;
-    max-width: 800px;
-    display: block;
-    margin: 50px auto 0;
+    width: 50%; max-width: 600px;
+    margin: 50px auto 0; display: block;
+    border-radius: 24px;
     filter: drop-shadow(0 25px 60px rgba(0,0,0,0.7));
-    border-radius: 25px;
-    transform: translateZ(80px);
 }
 
-/*  
-==========================================
-    VISION PRO FLOATING PANELS
-==========================================
-*/
-
-.section {
-    max-width: 1150px;
-    margin: 140px auto;
-    padding: 0 20px;
-}
-
+/* PANEL */
+.section { max-width: 1150px; margin: 140px auto; padding: 0 20px; }
 .panel {
     background: var(--panel-bg);
-    border: 1px solid var(--glass-border);
+    padding: 50px; border-radius: 35px;
     backdrop-filter: blur(40px);
-    border-radius: 35px;
-    padding: 50px;
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 0 25px rgba(255,255,255,0.05), 0 20px 80px rgba(0,0,0,0.5);
     margin-top: 40px;
-    box-shadow:
-        inset 0 0 25px rgba(255,255,255,0.05),
-        0 20px 80px rgba(0,0,0,0.55);
 }
 
-/*  
-==========================================
-        IMAGE FRAMES
-==========================================
-*/
-
+/* IMAGES */
 .v-image {
-    width: 100%;
+    width: 100%; border-radius: 22px;
     margin: 30px 0;
-    border-radius: 25px;
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 25px 70px rgba(0,0,0,0.6);
 }
 
-/*  
-==========================================
-        GRID CARDS
-==========================================
-*/
-
+/* CARDS */
 .card-grid {
     display: grid;
-    gap: 25px;
-    margin-top: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px; margin-top: 40px;
 }
-
 .card {
     background: var(--panel-bg);
     border: 1px solid var(--glass-border);
     border-radius: 25px;
-    padding: 30px;
-    backdrop-filter: blur(30px);
-    transition: 0.4s;
+    padding: 30px; backdrop-filter: blur(30px);
+    transition: .3s;
 }
+.card:hover { transform: translateY(-6px); }
 
-.card:hover {
-    transform: translateY(-6px);
-}
-
-/*
-===========================================
-      SCROLL REVEAL PRODUCT BLOCK
-===========================================
-*/
-
+/* SCROLL BLOCK */
 .scroll-block {
-    height: 320px;
+    height: 300px;
     background: var(--panel-bg);
     border-radius: 30px;
     border: 1px solid var(--glass-border);
-    margin-top: 30px;
-    opacity: 0;
-    transform: translateY(80px);
+    margin-top: 40px;
+    opacity: 0; transform: translateY(80px);
     transition: 1s ease;
 }
-
 .scroll-block.show {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; transform: translateY(0);
 }
-
-/*  
-==========================================
-        FOOTER
-==========================================
-*/
 
 footer {
-    text-align: center;
-    padding: 80px 20px;
-    opacity: 0.5;
+    padding: 80px 20px; text-align:center; opacity:.5;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ===================== NAV ===================== -->
+<!-- NAVIGATION -->
 <nav>
     <div class="logo">Snus Vision Study</div>
     <div class="menu">
         <a href="#studie">Studie</a>
         <a href="#gesundheit">Gesundheit</a>
         <a href="#jugend">Jugend</a>
-        <a href="#langzeitfolgen">Langzeitfolgen</a>
+        <a href="#langzeitfolgen">Langzeit</a>
         <a href="#gesellschaft">Gesellschaft</a>
         <a href="#fazit">Fazit</a>
     </div>
 </nav>
 
-<!-- ===================== HERO ===================== -->
+<!-- HERO -->
 <section class="hero" data-aos="fade-up">
     <h1>Snus – Die Unsichtbare Gefahr</h1>
-    <p>Eine Vision-Pro-Präsentation über die gesundheitlichen & psychischen Folgen von Nikotinprodukten – besonders in jungen Jahren.</p>
+    <p>Eine Vision-Pro-Erfahrung über die Risiken und Folgen des Snus-Konsums.</p>
 
-    <!-- echtes Bild -->
-    <img src="https://images.unsplash.com/photo-1600181952534-3c3b79cdafb5?q=80&w=1800" alt="Snus Dosen modern">
+    <!-- ECHTES SNUS-BILD -->
+    <img src="https://images.pexels.com/photos/7786669/pexels-photo-7786669.jpeg" alt="Snus Dose">
 </section>
 
-<!-- ===================== STUDIE ===================== -->
+<!-- STUDIE -->
 <section id="studie" class="section" data-aos="fade-up">
-    <h2>Die Studie – Übersicht</h2>
+    <h2>Die Studie</h2>
 
     <div class="panel">
         <p>
-            Unsere fiktive Langzeitstudie analysierte das Konsumverhalten von über 500 Teilnehmern über 12 Monate.
-            Besonderer Fokus lag auf Jugendlichen, da Nikotin dort tiefgreifende Veränderungen im Gehirn verursacht.
+            Unsere fiktive Langzeitstudie untersuchte 500 Personen über ein Jahr,
+            um die Auswirkungen von Snus detailliert zu erfassen.
         </p>
 
-        <img class="v-image" src="https://images.unsplash.com/photo-1633170931965-98f46c73d20b?q=80&w=1800" alt="Studien Grafik">
+        <!-- ECHTES SNUS-BILD -->
+        <img class="v-image" src="https://images.pexels.com/photos/7786671/pexels-photo-7786671.jpeg" alt="Snus Packung">
     </div>
 </section>
 
-<!-- ===================== GESUNDHEIT ===================== -->
+<!-- GESUNDHEIT -->
 <section id="gesundheit" class="section" data-aos="fade-up">
     <h2>Gesundheitliche Auswirkungen</h2>
 
     <div class="card-grid">
-        <div class="card">
-            <h3>Herz-Kreislauf-System</h3>
-            <p>Erhöhter Blutdruck, Herzbelastung & langfristige Gefäßschäden.</p>
-        </div>
-
-        <div class="card">
-            <h3>Mundraum</h3>
-            <p>Zahnfleischrückgang, Entzündungen, Schleimhautveränderungen.</p>
-        </div>
-
-        <div class="card">
-            <h3>Psychische Effekte</h3>
-            <p>Abhängigkeit, Stressveränderungen und Stimmungsschwankungen.</p>
-        </div>
-
-        <div class="card">
-            <h3>Neurologische Veränderungen</h3>
-            <p>Nikotin beeinflusst Lernprozesse, Aufmerksamkeit & Dopaminsystem.</p>
-        </div>
+        <div class="card"><h3>Herz</h3><p>Erhöhter Blutdruck & Puls.</p></div>
+        <div class="card"><h3>Mundraum</h3><p>Entzündungen & Zahnfleischschäden.</p></div>
+        <div class="card"><h3>Psychisch</h3><p>Abhängigkeit & Stressveränderung.</p></div>
+        <div class="card"><h3>Neurologisch</h3><p>Beeinflussung der Lernfähigkeit.</p></div>
     </div>
 
     <div class="scroll-block" id="scroll1"></div>
 </section>
 
-<!-- ===================== JUGEND ===================== -->
+<!-- JUGEND -->
 <section id="jugend" class="section" data-aos="fade-up">
     <h2>Jugendliche – besonders gefährdet</h2>
 
     <div class="panel">
-        <p>
-            Das jugendliche Gehirn ist formbar – Nikotin verändert Synapsen,
-            Motivationssysteme und Impulskontrolle. Frühkonsum erhöht das Risiko
-            lebenslanger Abhängigkeit dramatisch.
-        </p>
+        <p>Früher Konsum verändert das Gehirn dauerhaft.</p>
 
-        <img class="v-image" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1800" alt="Jugendliche Risiko">
+        <!-- Snus Bild -->
+        <img class="v-image" src="https://images.pexels.com/photos/7786670/pexels-photo-7786670.jpeg" alt="Snus Dose Jugendliche">
     </div>
 
     <div class="scroll-block" id="scroll2"></div>
 </section>
 
-<!-- ===================== LANGZEIT ===================== -->
+<!-- LANGZEIT -->
 <section id="langzeitfolgen" class="section" data-aos="fade-up">
-    <h2>Langzeitfolgen im Erwachsenenalter</h2>
+    <h2>Langzeitfolgen</h2>
 
     <div class="card-grid">
-        <div class="card">
-            <h3>Dauerhafte Abhängigkeit</h3>
-            <p>Frühkonsum verändert Belohnungssysteme dauerhaft.</p>
-        </div>
-
-        <div class="card">
-            <h3>Stressregulation</h3>
-            <p>Nikotin beeinflusst emotionale Stabilität bis ins Erwachsenenalter.</p>
-        </div>
-
-        <div class="card">
-            <h3>Zahnfleischschäden</h3>
-            <p>Schäden am Weichgewebe sind oft irreversibel.</p>
-        </div>
+        <div class="card"><h3>Abhängigkeit</h3><p>Oft dauerhaft.</p></div>
+        <div class="card"><h3>Stresssystem</h3><p>Veränderte emotionale Stabilität.</p></div>
+        <div class="card"><h3>Mundschäden</h3><p>Dauerhafte Probleme.</p></div>
     </div>
 
     <div class="scroll-block" id="scroll3"></div>
 </section>
 
-<!-- ===================== GESELLSCHAFT ===================== -->
+<!-- GESELLSCHAFT -->
 <section id="gesellschaft" class="section" data-aos="fade-up">
     <h2>Gesellschaftliche Faktoren</h2>
 
     <div class="panel">
         <p>
-            Moderne Snus-Marketingstrategien richten sich bewusst an junge Menschen.
-            Stylische Dosen, Influencer, Trend-Optik. Dadurch wird normalisiert, was
-            gesundheitlich schädlich ist.
+            Snus gewinnt durch Trend-Marketing an Popularität.
         </p>
 
-        <img class="v-image" src="https://images.unsplash.com/photo-1587560699334-bea93391dcef?q=80&w=1800" alt="Marketing Snus">
+        <!-- Snus Bild -->
+        <img class="v-image" src="https://images.pexels.com/photos/7786672/pexels-photo-7786672.jpeg" alt="Snus Werbung neutral">
     </div>
 </section>
 
-<!-- ===================== FAZIT ===================== -->
+<!-- FAZIT -->
 <section id="fazit" class="section" data-aos="fade-up">
     <h2>Fazit</h2>
-
     <div class="panel">
         <p>
-            Snus ist kein harmloses Produkt – besonders nicht für Jugendliche.
-            Diese Vision-Pro-Erfahrung soll Bewusstsein schaffen und zeigen,
-            wie unterschätzt die Risiken wirklich sind.
+            Snus ist kein harmloses Lifestyle-Produkt.  
+            Diese Seite zeigt die realen Risiken – klar, modern und verständlich.
         </p>
     </div>
 </section>
 
-<footer>
-    © 2025 Vision Study – Apple-Style Experience
-</footer>
+<footer>© 2025 Vision Study – Apple Vision Pro Style</footer>
 
-<!-- AOS Script -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init();</script>
 
-<!-- Scroll reveal -->
 <script>
-function revealOnScroll(id) {
-    const el = document.getElementById(id);
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 90) {
+function reveal(id){
+    const el=document.getElementById(id);
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
         el.classList.add("show");
     }
 }
-window.addEventListener("scroll", () => {
-    revealOnScroll("scroll1");
-    revealOnScroll("scroll2");
-    revealOnScroll("scroll3");
+window.addEventListener("scroll",()=>{
+    reveal("scroll1");
+    reveal("scroll2");
+    reveal("scroll3");
 });
 </script>
 
