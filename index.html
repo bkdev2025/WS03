@@ -3,170 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Snus Studie – Vision Pro Experience</title>
-
-<!-- Google Fonts SF Pro -->
-<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<title>Anmeldung – Google Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root {
-    --bg: #0b0b0d;
-    --text: #f6f7fb;
-    --panel-bg: rgba(255,255,255,0.06);
-    --glass-border: rgba(255,255,255,0.1);
-    --accent1: #5082ff;
-    --accent2: #ff6b6b;
-    --accent3: #ffa94d;
-    --accent4: #6bcfbb;
-}
+    /* Grundstruktur */
+    body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background: var(--bg); color: var(--text); font-family:"SF Pro Text",sans-serif; line-height:1.65; overflow-x:hidden; scroll-behavior:smooth; }
+    .container {
+        background: #fff;
+        padding: 40px 50px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
 
-/* NAVIGATION */
-nav { position:fixed; top:0; width:100%; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; backdrop-filter:blur(25px); background: rgba(20,20,26,0.45); border-bottom:1px solid var(--glass-border); z-index:1000; }
-nav .menu a { color: var(--text); margin-left:25px; text-decoration:none; opacity:.75; font-weight:500; transition:.3s; }
-nav .menu a:hover { opacity:1; }
+    h1 {
+        font-weight: 500;
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #202124;
+    }
 
-/* HEADER */
-header { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; }
-header h1 { font-size:4rem; font-weight:700; margin-bottom:20px; text-shadow:0 0 30px var(--accent1); }
-header p { font-size:1.3rem; opacity:0.8; max-width:650px; }
+    p {
+        color: #5f6368;
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
 
-/* SECTIONS */
-section { max-width:1150px; margin:140px auto; padding:0 20px; position:relative; }
+    input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 14px 12px;
+        margin-bottom: 20px;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: border 0.3s;
+    }
 
-/* PANELS */
-.panel { background: var(--panel-bg); padding:50px; border-radius:35px; backdrop-filter:blur(30px); border:1px solid var(--glass-border); margin-top:40px; box-shadow: inset 0 0 25px rgba(255,255,255,0.05),0 20px 80px rgba(0,0,0,0.4); opacity:0; transform: translateY(60px) scale(0.95); transition: all 1s cubic-bezier(0.77, 0, 0.175, 1); }
+    input[type="email"]:focus, input[type="password"]:focus {
+        border-color: #4285f4;
+        outline: none;
+        box-shadow: 0 1px 2px rgba(66,133,244,0.2);
+    }
 
-/* KAPITEL-TITEL */
-h2.chapter-title { font-size:2.5rem; margin-bottom:25px; font-weight:700; text-transform:uppercase; text-align:center; opacity:0; transform: translateY(40px); transition: all 1s ease-out; }
-h2.chapter1 { color: var(--accent1); }
-h2.chapter2 { color: var(--accent2); }
-h2.chapter3 { color: var(--accent3); }
-h2.chapter4 { color: var(--accent4); }
+    button {
+        width: 100%;
+        padding: 14px 0;
+        background: #4285f4;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
 
-/* HEADINGS & TEXT */
-h3 { margin-bottom:20px; font-weight:600; color:var(--text); }
-p { margin-bottom:15px; color:var(--text); }
+    button:hover {
+        background: #357ae8;
+    }
 
-/* FOOTER */
-footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
+    .verification {
+        margin-top: 20px;
+        display: none;
+        text-align: left;
+        color: #202124;
+    }
+
+    .verification input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+    }
+
+    .success-message {
+        display: none;
+        color: green;
+        font-weight: 500;
+        margin-top: 15px;
+    }
 </style>
 </head>
-
 <body>
 
-<nav>
-    <div class="logo">Snus Vision Study</div>
-    <div class="menu">
-        <a href="#kap1">Einführung und Überblick</a>
-        <a href="#kap2">Langzeitfolgen und wissenschaftliche Erkenntnisse</a>
-        <a href="#kap3">Psychologische Auswirkungen und Verhalten</a>
-        <a href="#kap4">Prävention, Politik und Zukunftsperspektiven</a>
+<div class="container">
+    <h1>Google Anmeldung</h1>
+    <p>Bitte melde dich an, um fortzufahren</p>
+    
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="E-Mail-Adresse" required>
+        <input type="password" id="password" placeholder="Passwort" required>
+        <button type="submit">Weiter</button>
+    </form>
+
+    <div class="verification" id="verificationDiv">
+        <p>Ein Verifizierungscode wurde an deine E-Mail gesendet:</p>
+        <input type="text" id="verificationCode" placeholder="Code eingeben">
+        <button id="verifyBtn">Verifizieren</button>
+        <p class="success-message" id="successMsg">Erfolgreich verifiziert!</p>
     </div>
-</nav>
-
-<header>
-    <h1>Snus – Die Unsichtbare Gefahr</h1>
-    <p>Eine umfassende Analyse über gesundheitliche, psychologische und gesellschaftliche Auswirkungen des Snus-Konsums, besonders bei jungen Menschen.</p>
-</header>
-
-<!-- Kapitel 1 -->
-<section id="kap1">
-    <div class="panel">
-        <h2 class="chapter-title chapter1">Einführung und Überblick</h2>
-        <p>Okay, lass uns mal locker über Snus reden. Das ist so ein rauchfreier Tabak, den man unter die Lippe legt. Klingt harmlos, oder? Naja, nicht ganz. In Schweden gibt’s das schon ewig, früher eher Luxus, heute fast normal. Viele denken, „nur Snus, das kann doch nix schaden“ – aber das ist die Falle. Vor allem für junge Menschen. Dein Gehirn ist noch am Wachsen, das Nikotin verändert das Belohnungssystem, Motivation, sogar deine Stimmung. Man denkt, man probiert nur aus, aber irgendwann wird daraus ein Automatismus, den du kaum merkst.</p>
-
-        <p>Außerdem ist Snus alles andere als „harmlos“. Dein Zahnfleisch wird gereizt, Herz und Kreislauf belastet, und ja, die Abhängigkeit kann schnell kommen. Viele unterschätzen die Wirkung, gerade wenn man jung ist. Dann kommt der soziale Druck dazu: Freunde benutzen es, Werbung sieht cool aus, Instagram zeigt Snus überall. Plötzlich wirkt alles normal und „chillig“. Erwachsene merken das, Jugendliche fast nie.</p>
-
-        <p>Manche benutzen Snus, um das Rauchen zu reduzieren. Klingt sinnvoll, aber ist nicht viel besser. Nikotin bleibt Nikotin, egal ob geraucht oder geschnupft. Und das Belohnungssystem wird auf Dauer gestört, man entwickelt Gewohnheiten und Konditionierungen: Pausen, Entspannung, Gruppenmomente – alles gekoppelt an Snus. So entsteht langfristige Bindung, oft ohne dass man es merkt.</p>
-
-        <p>Historisch interessant: Schweden hat strenge Regelungen bei der Herstellung, weniger Nitrosamine. In anderen Ländern ist Snus oft illegal oder schwer erhältlich – das macht es für Jugendliche noch reizvoller. Forschung zeigt: langfristiger Konsum hat Risiken, besonders Herz-Kreislauf, neurologische Effekte und Abhängigkeit. Aber weil es rauchfrei ist, wird es oft verharmlost. Einführung und Überblick bedeutet also: Augen auf, informieren, verstehen, was wirklich passiert. Cooles Design der Verpackung hin oder her – der Effekt ist real.</p>
-
-        <p>Okay, das war jetzt ein Überblick. Einführung und Überblick zeigt uns also: Snus ist nicht harmlos, besonders nicht für Jugendliche, und es ist wichtig zu verstehen, wie Nikotin wirkt, wie die sozialen Mechanismen funktionieren und welche gesundheitlichen Folgen auftreten können. Wer das checkt, trifft bessere Entscheidungen.</p>
-    </div>
-</section>
-
-<!-- Kapitel 2 -->
-<section id="kap2">
-    <div class="panel">
-        <h2 class="chapter-title chapter2">Langzeitfolgen und wissenschaftliche Erkenntnisse</h2>
-        <p>Wenn wir über Langzeitfolgen und wissenschaftliche Erkenntnisse reden, muss man erstmal klären: Snus ist kein harmloser Kaugummi. Es steckt Nikotin drin, das wirkt langfristig auf Herz, Kreislauf und Gehirn. Studien zeigen, dass regelmäßige Nutzer ein höheres Risiko für Bluthochdruck, Herzinfarkt und Schlaganfälle haben. Nicht jeder bekommt das, aber das Risiko steigt mit Dauer und Menge.</p>
-
-        <p>Besonders spannend: das Gehirn. Langzeitstudien zeigen, dass Nikotin das Dopaminsystem verändert. Lernen, Aufmerksamkeit, Impulskontrolle – alles wird subtil beeinflusst. Jugendliche sind besonders empfindlich, weil sich ihre neuronalen Netzwerke noch entwickeln. Selbst moderate Mengen können die Belohnungssysteme dauerhaft verändern.</p>
-
-        <p>Dann gibt es psychische Effekte: Stimmungsschwankungen, Stressanfälligkeit, depressive Tendenzen. Viele merken das gar nicht sofort, weil Snus kurzzeitig beruhigt. Aber langfristig wird das System überlastet. Wissenschaftler nennen das maladaptive Anpassung: der Körper gewöhnt sich an Nikotin, ohne dass die „echte“ Stressbewältigung trainiert wird.</p>
-
-        <p>Die epidemiologischen Daten sind interessant: 20–30% der Jugendlichen nutzen Snus regelmäßig, bei Erwachsenen noch mehr. Langfristige Folgen: Zahn- und Zahnfleischprobleme, Herzprobleme, Abhängigkeit. Das Risiko steigt, je früher man anfängt. Langzeitfolgen und wissenschaftliche Erkenntnisse zeigen also: Snus ist kein harmloses Lifestyle-Produkt, sondern eine Substanz mit realen Effekten, die oft unterschätzt werden.</p>
-
-        <p>Langzeitfolgen und wissenschaftliche Erkenntnisse umfassen auch die sozialen Aspekte. Wer Snus benutzt, wird häufig Teil einer Gruppe, die den Konsum normalisiert. Dadurch steigt die Wahrscheinlichkeit, dass andere Substanzen ausprobiert werden. Werbung, Peer-Effekte und Lifestyle-Marketing verstärken das Ganze. Man denkt vielleicht „nur Snus“, aber eigentlich betrifft es Verhalten, Gewohnheiten und Gehirnstruktur langfristig.</p>
-    </div>
-</section>
-
-<!-- Kapitel 3 -->
-<section id="kap3">
-    <div class="panel">
-        <h2 class="chapter-title chapter3">Psychologische Auswirkungen und Verhalten</h2>
-        <p>Wenn man über Psychologische Auswirkungen und Verhalten spricht, wird es richtig interessant. Snus ist nicht einfach nur Tabak – es verändert, wie dein Gehirn tickt, wie du Entscheidungen triffst und wie du dich fühlst. Viele denken: „Ich nutze nur ein bisschen Snus, das ist doch harmlos.“ Aber das Belohnungssystem im Gehirn merkt sich jede Nikotinspritze. Kurzfristig fühlst du dich vielleicht ruhig, entspannt oder konzentriert, aber langfristig passiert eine Menge hinter den Kulissen.</p>
-
-        <p>Die Lernfähigkeit wird subtil beeinflusst. Studien zeigen, dass Jugendliche, die früh mit Snus anfangen, Schwierigkeiten haben, Aufmerksamkeit lange aufrechtzuerhalten. Man denkt, man ist noch topkonzentriert, aber kleine Ablenkungen wirken stärker, Gedächtnisprozesse werden verlangsamt. Psychologische Auswirkungen und Verhalten umfassen auch Motivation: Snus koppelt Belohnung an Konsum. Plötzlich werden Pausen, Treffen mit Freunden oder kurze Entspannungssituationen untrennbar mit Snus verbunden. Das führt zu einem automatischen Konsum, ohne dass man es wirklich merkt.</p>
-
-        <p>Stressbewältigung ist ein weiterer Punkt. Viele junge Nutzer sagen: „Ich nehme Snus, um mich zu entspannen.“ Klar, kurzfristig wirkt es so. Aber langfristig wird das Gehirn abhängig davon, Stress nur noch über Nikotin zu regulieren. Psychologische Auswirkungen und Verhalten zeigen also, dass die Anpassung maladaptiv ist – man gewöhnt sich an die Substanz, statt echte Strategien zur Stressbewältigung zu entwickeln.</p>
-
-        <p>Soziale Dynamik spielt auch eine Rolle. Wer Snus benutzt, integriert sich in bestimmte Gruppen, in denen Konsum normalisiert wird. Das beeinflusst Verhalten und Entscheidungen erheblich. Plötzlich ist es ein alltägliches Ritual, ein „cooles“ Element der Peer-Gruppe, und die Wahrscheinlichkeit steigt, dass andere Substanzen ausprobiert werden. Man denkt: „Ich mache nur Snus“, aber psychologische Auswirkungen und Verhalten zeigen, dass es ein Dominoeffekt sein kann.</p>
-
-        <p>Zusätzlich gibt es emotionale Effekte: Stimmungsschwankungen, Reizbarkeit, erhöhte Stressanfälligkeit. Viele merken es gar nicht sofort, weil die kurzfristige Wirkung beruhigend ist. Aber langfristig entsteht ein Kreislauf: Snus wird benutzt, um Stress zu reduzieren, Stress steigt aber durch die Abhängigkeit – genau hier greifen psychologische Auswirkungen und Verhalten.</p>
-
-        <p>Und dann ist da noch die Selbsterkenntnis. Wer sich mit Psychologische Auswirkungen und Verhalten beschäftigt, merkt schnell: Snus beeinflusst Entscheidungsprozesse, Motivation, Emotionen und soziale Interaktionen. Man wird konditioniert, ohne es bewusst zu merken. Das alles passiert oft subtil, aber die langfristigen Folgen sind deutlich. Es geht also nicht nur um körperliche Risiken, sondern um komplexe psychologische Muster, die das Leben auf Dauer verändern.</p>
-    </div>
-</section>
-
-<!-- Kapitel 4 -->
-<section id="kap4">
-    <div class="panel">
-        <h2 class="chapter-title chapter4">Prävention, Politik und Zukunftsperspektiven</h2>
-        <p>Prävention, Politik und Zukunftsperspektiven – das ist das Kapitel, das sich damit beschäftigt, wie wir das Ganze in den Griff bekommen können. Snus ist kein isoliertes Problem; es betrifft Jugendliche, Erwachsene, Gesundheitssysteme und Gesellschaft. Prävention beginnt mit Wissen: Aufklärung in Schulen, Elternarbeit, öffentliche Kampagnen. Ziel: Verständnis schaffen, bevor das Produkt attraktiv oder normalisiert wird.</p>
-
-        <p>Politik spielt eine zentrale Rolle. Altersbeschränkungen, Verpackungsdesigns, Werbeverbote – all das beeinflusst, wie leicht junge Menschen an Snus kommen. Länder wie Schweden regulieren Herstellung und Verkauf streng, wodurch die gesundheitlichen Risiken verringert werden. In anderen Ländern ist Snus illegal oder schwer erhältlich, was oft paradox zu erhöhtem Reiz führt. Prävention, Politik und Zukunftsperspektiven müssen also zusammen gedacht werden.</p>
-
-        <p>Dann kommt die gesellschaftliche Perspektive. Snus wird als Lifestyle-Produkt vermarktet, was die Prävention erschwert. Jugendliche sehen Snus auf Social Media, in Filmen, bei Freunden – plötzlich ist es normal. Hier greifen Politik und Prävention ineinander: altersgerechte Aufklärung, Medienkompetenz, kritisches Bewusstsein schaffen. Prävention, Politik und Zukunftsperspektiven zeigen, dass reine Verbote nicht ausreichen – man braucht Aufklärung und Unterstützung.</p>
-
-        <p>Forschung ist ebenfalls zentral. Langzeitstudien zu Gesundheit, Verhalten, Abhängigkeit und psychologischen Effekten liefern die Grundlage für politische Entscheidungen. Prävention, Politik und Zukunftsperspektiven hängen stark von Daten ab: je besser wir verstehen, wie Snus wirkt, desto gezielter können Maßnahmen ergriffen werden.</p>
-
-        <p>Auf individueller Ebene bedeutet Prävention, sich bewusst zu machen, welche Risiken man eingeht, welche sozialen Mechanismen wirken und wie Verhalten geprägt wird. Politik kann Rahmenbedingungen schaffen, aber die eigene Entscheidung bleibt zentral. Zukunftsperspektiven beinhalten auch technologische Entwicklungen: Apps, digitale Aufklärung, soziale Medien – alles kann genutzt werden, um Prävention effektiver zu machen.</p>
-
-        <p>Langfristig geht es darum, gesellschaftliche Normen zu verändern. Snus darf nicht als harmlos oder cool gelten, besonders für Jugendliche. Prävention, Politik und Zukunftsperspektiven zeigen Wege auf, wie Risiken reduziert werden können: Bildung, Aufklärung, soziale Unterstützung und strengere Regulation. Ziel ist, dass Menschen fundierte Entscheidungen treffen können.</p>
-    </div>
-</section>
-
-<footer>© 2025 Vision Study – Apple Vision Pro Style</footer>
+</div>
 
 <script>
-// Animation für Panels und Kapitel-Titel
-const panels = document.querySelectorAll('.panel');
-const titles = document.querySelectorAll('.chapter-title');
+    const loginForm = document.getElementById('loginForm');
+    const verificationDiv = document.getElementById('verificationDiv');
+    const verifyBtn = document.getElementById('verifyBtn');
+    const successMsg = document.getElementById('successMsg');
 
-function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-    panels.forEach(panel => {
-        const panelTop = panel.getBoundingClientRect().top;
-        if (panelTop < windowHeight - 100) {
-            panel.style.opacity = 1;
-            panel.style.transform = 'translateY(0) scale(1)';
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Simulierte Anmeldung
+        verificationDiv.style.display = 'block';
+        loginForm.style.display = 'none';
+    });
+
+    verifyBtn.addEventListener('click', function() {
+        const code = document.getElementById('verificationCode').value.trim();
+        if(code === "123456") { // Simulierter Code
+            successMsg.style.display = 'block';
+        } else {
+            alert("Falscher Code, bitte erneut versuchen!");
         }
     });
-    titles.forEach(title => {
-        const titleTop = title.getBoundingClientRect().top;
-        if (titleTop < windowHeight - 150) {
-            title.style.opacity = 1;
-            title.style.transform = 'translateY(0)';
-        }
-    });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
 </script>
 
 </body>
