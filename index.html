@@ -5,157 +5,168 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Snus Studie – Vision Pro Experience</title>
 
-<!-- SF Pro + VisionOS Fonts -->
+<!-- Google Fonts SF Pro -->
 <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- AOS Animation -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
 <style>
 :root {
     --bg: #0b0b0d;
     --text: #f6f7fb;
-    --panel-bg: rgba(255,255,255,0.08);
-    --glass-border: rgba(255,255,255,0.12);
-    --glow: rgba(80,130,255,0.55);
+    --panel-bg: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.1);
+    --accent: rgba(80,130,255,0.2);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background: var(--bg); color: var(--text); font-family:"SF Pro Text", sans-serif; line-height:1.65; }
-nav { position:fixed; top:0; width:100%; height:60px; backdrop-filter:blur(25px); background:rgba(20,20,26,0.45); border-bottom:1px solid var(--glass-border); display:flex; align-items:center; justify-content:space-between; padding:0 40px; z-index:1000;}
-nav .menu a { color:var(--text); margin-left:25px; text-decoration:none; opacity:.75; transition:.3s;}
+body { background: var(--bg); color: var(--text); font-family:"SF Pro Text",sans-serif; line-height:1.65; overflow-x:hidden; scroll-behavior:smooth; }
+
+/* NAVIGATION */
+nav { position:fixed; top:0; width:100%; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; backdrop-filter:blur(25px); background: rgba(20,20,26,0.45); border-bottom:1px solid var(--glass-border); z-index:1000; }
+nav .menu a { color: var(--text); margin-left:25px; text-decoration:none; opacity:.75; font-weight:500; transition:.3s; }
 nav .menu a:hover { opacity:1; }
-section { max-width:1150px; margin:140px auto; padding:0 20px; }
-.panel { background: var(--panel-bg); padding:50px; border-radius:35px; backdrop-filter:blur(40px); border:1px solid var(--glass-border); box-shadow: inset 0 0 25px rgba(255,255,255,0.05),0 20px 80px rgba(0,0,0,0.5); margin-top:40px; }
-h1,h2,h3 { margin-bottom:20px; font-weight:600; }
-p { margin-bottom:15px; }
+
+/* HEADER */
+header { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; }
+header h1 { font-size:4rem; font-weight:700; margin-bottom:20px; text-shadow:0 0 30px rgba(80,130,255,0.3); }
+header p { font-size:1.3rem; opacity:0.8; max-width:650px; }
+
+/* SECTIONS */
+section { max-width:1150px; margin:140px auto; padding:0 20px; position:relative; }
+
+/* PANELS */
+.panel { background: var(--panel-bg); padding:50px; border-radius:35px; backdrop-filter:blur(30px); border:1px solid var(--glass-border); margin-top:40px; box-shadow: inset 0 0 25px rgba(255,255,255,0.05),0 20px 80px rgba(0,0,0,0.4); transition: transform 0.6s ease, opacity 0.6s ease; opacity:0; transform: translateY(60px); }
+
+/* PANEL ANIMATION */
+.panel.show { opacity:1; transform: translateY(0); }
+
+/* HEADINGS */
+h1,h2,h3 { margin-bottom:20px; font-weight:600; color:var(--text);}
+p { margin-bottom:15px; color:var(--text); }
+
+/* CARD GRID */
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-top:40px; }
+.card { background: var(--panel-bg); border:1px solid var(--glass-border); border-radius:25px; padding:30px; backdrop-filter:blur(25px); transition: transform 0.3s ease; }
+.card:hover { transform: translateY(-6px); }
+
+/* FOOTER */
+footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
+
+/* ACCENT COLORS */
+.accent { color: #5082ff; font-weight:600; }
+
 </style>
 </head>
+
 <body>
 
 <!-- NAVIGATION -->
 <nav>
     <div class="logo">Snus Vision Study</div>
     <div class="menu">
-        <a href="#einleitung">Einleitung</a>
-        <a href="#geschichte">Geschichte</a>
-        <a href="#gesundheit">Gesundheit</a>
-        <a href="#jugend">Jugend</a>
-        <a href="#gesellschaft">Gesellschaft</a>
+        <a href="#kap1">Kapitel 1</a>
+        <a href="#kap2">Kapitel 2</a>
+        <a href="#kap3">Kapitel 3</a>
+        <a href="#kap4">Kapitel 4</a>
+        <a href="#fazit">Fazit</a>
     </div>
 </nav>
 
+<!-- HEADER -->
+<header>
+    <h1>Snus – Die Unsichtbare Gefahr</h1>
+    <p>Eine umfassende Analyse über gesundheitliche, psychologische und gesellschaftliche Auswirkungen des Snus-Konsums, besonders bei jungen Menschen.</p>
+</header>
+
 <!-- KAPITEL 1 -->
-<section id="einleitung">
+<section id="kap1">
     <div class="panel">
-        <h1>Kapitel 1: Einführung und Überblick</h1>
-        <p>
-            Snus ist eine Form von rauchfreiem Tabak, die vor allem in Schweden und Norwegen verbreitet ist. 
-            Im Gegensatz zu herkömmlichen Zigaretten wird Snus oral konsumiert, meist unter der Oberlippe platziert. 
-            In den letzten Jahrzehnten hat Snus international an Aufmerksamkeit gewonnen, sowohl wegen seines Potenzials als 
-            „weniger schädliche“ Alternative zu rauchbaren Tabakprodukten, als auch wegen wachsender Gesundheitsbedenken.
-        </p>
-        <p>
-            Diese Studie untersucht die kurz- und langfristigen Auswirkungen des Snus-Konsums auf den menschlichen Körper, 
-            insbesondere wenn der Konsum in jungen Jahren beginnt. Ziel ist es, wissenschaftlich fundierte Erkenntnisse 
-            zu liefern, die Entscheidungsträgern, Eltern und Jugendlichen helfen, fundierte Entscheidungen zu treffen.
-        </p>
-        <p>
-            Die Studie gliedert sich in mehrere Abschnitte: historische Entwicklung des Produkts, physiologische und psychologische 
-            Auswirkungen, spezifische Risiken für Jugendliche, langfristige gesundheitliche Folgen sowie gesellschaftliche und 
-            wirtschaftliche Dimensionen. Jedes Kapitel kombiniert wissenschaftliche Analysen mit praxisnahen Erläuterungen, 
-            um ein umfassendes Bild der Snus-Nutzung und ihrer Folgen zu zeichnen.
-        </p>
+        <h2>Kapitel 1: Einführung und Überblick</h2>
+        <p>Snus ist eine Form von rauchfreiem Tabak, meist unter der Oberlippe konsumiert. Die Popularität hat in den letzten Jahrzehnten international zugenommen, auch als vermeintlich „weniger schädliche Alternative“ zu Rauchprodukten.</p>
+        <h3>Geschichte</h3>
+        <p>Ursprünge in Schweden im 18. Jahrhundert, zunächst Luxusprodukt, später breite Bevölkerung. Pasteurisierung reduziert Nitrosamine, modern vermarktet als Lifestyle-Produkt.</p>
+        <h3>Gesundheitliche Auswirkungen</h3>
+        <p>Herz-Kreislauf-Belastung, Zahnfleischschäden, Abhängigkeit und neurologische Veränderungen.</p>
+        <h3>Jugendliche Konsumenten</h3>
+        <p>Früher Konsum kann strukturelle Hirnveränderungen, Aufmerksamkeit- und Impulskontrollprobleme verursachen.</p>
+        <h3>Gesellschaftliche Aspekte</h3>
+        <p>Marketingstrategien, Jugendschutzdebatten, ökonomische Bedeutung.</p>
     </div>
 </section>
 
-<section id="geschichte">
+<!-- KAPITEL 2 -->
+<section id="kap2">
     <div class="panel">
-        <h2>Geschichte und Entwicklung von Snus</h2>
-        <p>
-            Snus hat seine Wurzeln in der schwedischen Tabaktradition des 18. Jahrhunderts. 
-            Anders als der Tabak, der in anderen europäischen Ländern geraucht wurde, entwickelte sich in Schweden eine 
-            Kultur des rauchfreien Tabaks. Historische Quellen zeigen, dass Snus zunächst von höheren Gesellschaftsschichten 
-            konsumiert wurde, bevor es in den urbanen und ländlichen Bevölkerungsgruppen Verbreitung fand.
-        </p>
-        <p>
-            Der Herstellungsprozess von Snus unterscheidet sich deutlich von anderen Tabakprodukten: der Tabak wird pasteurisiert, 
-            was den Gehalt an krebserregenden Nitrosaminen reduziert. Diese Technik, die bereits im 19. Jahrhundert eingeführt wurde, 
-            gilt als entscheidender Faktor für die geringere Karzinogenität im Vergleich zu gerauchtem Tabak.
-        </p>
-        <p>
-            In den letzten Jahrzehnten hat Snus ein Comeback erlebt, insbesondere durch die Vermarktung als moderne, „rauchfreie“ Alternative. 
-            Innovative Verpackungen, geschmackliche Variationen und die Positionierung als Lifestyle-Produkt haben die Attraktivität erhöht, 
-            vor allem bei jungen Konsumenten.
-        </p>
+        <h2>Kapitel 2: Langzeitfolgen und wissenschaftliche Erkenntnisse</h2>
+        <h3>Dauerhafte Abhängigkeit</h3>
+        <p>Früher Konsum führt zu dauerhaften Belohnungssystem-Veränderungen im Gehirn, selbst moderate Mengen genügen.</p>
+        <h3>Herz-Kreislauf-Risiken</h3>
+        <p>Hypertonie, Herzinfarkt, Schlaganfall – auch beim isolierten oralen Konsum über Jahre.</p>
+        <h3>Neurologische Effekte</h3>
+        <p>Beeinträchtigung von Dopaminsystem, Lernfähigkeit, Aufmerksamkeitsspanne und Impulskontrolle.</p>
+        <h3>Psychische Gesundheit</h3>
+        <p>Erhöhte Stressanfälligkeit, Stimmungsschwankungen, Depressionen bei langfristigem Konsum.</p>
+        <h3>Epidemiologische Daten</h3>
+        <p>20–30% der Jugendlichen konsumieren Snus; langfristige Risiken für orale Erkrankungen, Herz-Kreislauf-Probleme und Abhängigkeit.</p>
+        <h3>Gesellschaftliche Langzeitfolgen</h3>
+        <p>Gesundheitskosten, soziale Belastung, Normalisierung des Nikotinkonsums, Regulierung durch Politik.</p>
     </div>
 </section>
 
-<section id="gesundheit">
+<!-- KAPITEL 3 -->
+<section id="kap3">
     <div class="panel">
-        <h2>Gesundheitliche Auswirkungen</h2>
-        <p>
-            Obwohl Snus als „weniger schädlich“ gilt als Rauchen, ist der Konsum keineswegs risikofrei. 
-            Nikotin, der zentrale Wirkstoff, hat sowohl akute als auch langfristige Effekte auf das Herz-Kreislauf-System, 
-            das zentrale Nervensystem sowie die Mundgesundheit.
-        </p>
-        <h3>Herz-Kreislauf-System</h3>
-        <p>
-            Regelmäßiger Snus-Konsum führt zu erhöhtem Blutdruck, beschleunigtem Puls und einer erhöhten Belastung der Herzkranzgefäße. 
-            Langfristig kann dies das Risiko für Herzinfarkte und Schlaganfälle erhöhen. Studien zeigen, dass auch bei vermeintlich „moderatem“ Konsum 
-            eine messbare Belastung des kardiovaskulären Systems besteht.
-        </p>
-        <h3>Mundraum und Zahnfleisch</h3>
-        <p>
-            Snus wird direkt unter der Lippe platziert, wodurch das Zahnfleisch, die Mundschleimhaut und die Zähne dauerhaft belastet werden. 
-            Entzündungen, Rückbildung des Zahnfleisches und lokale Schleimhautveränderungen sind häufige Folgeerscheinungen, die sich teilweise 
-            nicht vollständig rückbilden.
-        </p>
-        <h3>Psychische und neurologische Effekte</h3>
-        <p>
-            Nikotin wirkt stimulierend auf das zentrale Nervensystem und kann kurzfristig die Konzentration verbessern. Gleichzeitig 
-            führt es zu einer hohen Abhängigkeit, verändert das Belohnungssystem des Gehirns und kann Stimmungsschwankungen sowie 
-            erhöhte Stressanfälligkeit verursachen. Besonders bei Jugendlichen, deren Gehirne sich noch in der Entwicklung befinden, 
-            sind diese Effekte gravierend.
-        </p>
+        <h2>Kapitel 3: Psychologische Auswirkungen und Verhalten</h2>
+        <h3>Lernfähigkeit und Aufmerksamkeit</h3>
+        <p>Nikotin verändert neuronale Plastizität, beeinträchtigt Lernprozesse, Konzentration und Merkfähigkeit, besonders bei Jugendlichen.</p>
+        <h3>Motivation und Belohnungssystem</h3>
+        <p>Veränderung der Motivation, gesteigerte Belohnungssuche durch Nikotin; Risiko langfristiger Abhängigkeit erhöht.</p>
+        <h3>Stressbewältigung</h3>
+        <p>Kurzfristige Entspannung, langfristig erhöhte Stressanfälligkeit; Nikotin als maladaptive Bewältigungsstrategie.</p>
+        <h3>Soziale Auswirkungen</h3>
+        <p>Gruppenzwang, Normalisierung von Tabakkonsum, erhöhte Wahrscheinlichkeit weiterer Substanznutzung.</p>
+        <h3>Psychische Störungen</h3>
+        <p>Höheres Risiko für Angststörungen, Depression und emotionale Dysregulation bei frühem Snus-Konsum.</p>
     </div>
 </section>
 
-<section id="jugend">
+<!-- KAPITEL 4 -->
+<section id="kap4">
     <div class="panel">
-        <h2>Jugendliche Konsumenten – besondere Risiken</h2>
-        <p>
-            Das jugendliche Gehirn ist besonders anfällig für neurochemische Veränderungen durch Nikotin. 
-            Früher Konsum kann langfristige strukturelle und funktionale Veränderungen verursachen, die 
-            Aufmerksamkeit, Impulskontrolle, Motivation und Lernfähigkeit beeinträchtigen.
-        </p>
-        <p>
-            Zahlreiche Studien zeigen, dass Jugendliche, die frühzeitig Snus konsumieren, eine höhere Wahrscheinlichkeit haben, 
-            im Erwachsenenalter eine dauerhafte Nikotinabhängigkeit zu entwickeln. Auch die Reaktion auf Stresssituationen ist oft 
-            verändert, was emotionale und soziale Anpassungsprozesse erschwert.
-        </p>
-        <p>
-            Neben den physiologischen Effekten bestehen auch psychologische und soziale Risiken: frühe Gewöhnung an Nikotin kann 
-            zur Normalisierung von Tabakkonsum führen und die Schwelle für die Nutzung weiterer Substanzen senken.
-        </p>
+        <h2>Kapitel 4: Prävention, Politik und Zukunftsperspektiven</h2>
+        <h3>Präventionsmaßnahmen</h3>
+        <p>Aufklärungskampagnen, Schulprogramme, Beratung für Eltern und Jugendliche; Fokus auf frühe Sensibilisierung.</p>
+        <h3>Regulierung und Politik</h3>
+        <p>Altersbeschränkungen, Verpackungsregeln, Werbungskontrolle; Unterschiede zwischen Schweden, Norwegen und internationalen Märkten.</p>
+        <h3>Gesellschaftliche Trends</h3>
+        <p>Rauchfreier Tabakkonsum wird normalisiert; Prävention vs. Lifestyle-Trends im Konflikt.</p>
+        <h3>Zukunftsperspektiven</h3>
+        <p>Weitere Forschung nötig, Fokus auf neuronale Langzeitwirkungen, Abhängigkeitsprävention, öffentliche Gesundheit.</p>
+        <h3>Fazit</h3>
+        <p>Snus ist kein harmloses Produkt; besonders Jugendliche sind gefährdet. Prävention, Regulierung und Aufklärung entscheidend, um gesundheitliche Schäden zu reduzieren.</p>
     </div>
 </section>
 
-<section id="gesellschaft">
-    <div class="panel">
-        <h2>Gesellschaftliche Aspekte und Marketing</h2>
-        <p>
-            Snus ist nicht nur ein individuelles Gesundheitsrisiko, sondern auch ein gesellschaftliches Phänomen. 
-            Hersteller nutzen gezielte Marketingstrategien, um Snus attraktiv zu machen, insbesondere für junge Konsumenten. 
-            Farbige, moderne Verpackungen, süßliche Geschmacksvarianten und Lifestyle-Positionierung erhöhen die Akzeptanz und Normalisierung.
-        </p>
-        <p>
-            Auf politischer Ebene führt dies zu Debatten über Regulierung, Jugendschutz und öffentliche Gesundheitskampagnen. 
-            Länder wie Schweden haben zwar hohe Konsumentenzahlen, jedoch gleichzeitig ein stark reguliertes Umfeld, das die Risiken 
-            adressiert und den Zugang für Jugendliche einschränkt.
-        </p>
-        <p>
-            Die gesellschaftliche Dimension umfasst auch ökonomische Faktoren: Produktion, Vertrieb und Export von Snus haben 
-            erhebliche wirtschaftliche Bedeutung in bestimmten Regionen, was die politische Debatte zusätzlich beeinflusst.
-        </p>
-    </div>
-</section>
+<footer>© 2025 Vision Study – Apple Vision Pro Style</footer>
+
+<!-- AOS Script -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({ duration:1200, easing:'ease-in-out', once:true });
+
+// Panel Scroll Reveal
+const panels = document.querySelectorAll('.panel');
+const revealPanels = () => {
+    const windowHeight = window.innerHeight;
+    panels.forEach(panel => {
+        const top = panel.getBoundingClientRect().top;
+        if(top < windowHeight - 100){ panel.classList.add('show'); }
+    });
+};
+window.addEventListener('scroll', revealPanels);
+window.addEventListener('load', revealPanels);
+</script>
 
 </body>
 </html>
