@@ -24,12 +24,8 @@
 body { background: var(--bg); color: var(--text); font-family:"SF Pro Text",sans-serif; line-height:1.65; overflow-x:hidden; scroll-behavior:smooth; }
 
 /* NAVIGATION */
-nav {
-    position:fixed; top:0; width:100%; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; backdrop-filter:blur(25px); background: rgba(20,20,26,0.45); border-bottom:1px solid var(--glass-border); z-index:1000;
-}
-nav .menu a {
-    color: var(--text); margin-left:25px; text-decoration:none; opacity:.75; font-weight:500; transition:.3s;
-}
+nav { position:fixed; top:0; width:100%; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; backdrop-filter:blur(25px); background: rgba(20,20,26,0.45); border-bottom:1px solid var(--glass-border); z-index:1000; }
+nav .menu a { color: var(--text); margin-left:25px; text-decoration:none; opacity:.75; font-weight:500; transition:.3s; }
 nav .menu a:hover { opacity:1; }
 
 /* HEADER */
@@ -41,16 +37,10 @@ header p { font-size:1.3rem; opacity:0.8; max-width:650px; }
 section { max-width:1150px; margin:140px auto; padding:0 20px; position:relative; }
 
 /* PANELS */
-.panel {
-    background: var(--panel-bg); padding:50px; border-radius:35px; backdrop-filter:blur(30px); border:1px solid var(--glass-border);
-    margin-top:40px; box-shadow: inset 0 0 25px rgba(255,255,255,0.05),0 20px 80px rgba(0,0,0,0.4);
-    opacity:0; transform: translateY(60px) scale(0.95); transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
-}
+.panel { background: var(--panel-bg); padding:50px; border-radius:35px; backdrop-filter:blur(30px); border:1px solid var(--glass-border); margin-top:40px; box-shadow: inset 0 0 25px rgba(255,255,255,0.05),0 20px 80px rgba(0,0,0,0.4); opacity:0; transform: translateY(60px) scale(0.95); transition: all 1s cubic-bezier(0.77, 0, 0.175, 1); }
 
-/* FARBIGE ÜBERTITEL */
-h2.chapter-title {
-    font-size:2.5rem; margin-bottom:25px; font-weight:700; text-transform:uppercase; text-align:center;
-}
+/* KAPITEL-TITEL */
+h2.chapter-title { font-size:2.5rem; margin-bottom:25px; font-weight:700; text-transform:uppercase; text-align:center; opacity:0; transform: translateY(40px); transition: all 1s ease-out; }
 h2.chapter1 { color: var(--accent1); }
 h2.chapter2 { color: var(--accent2); }
 h2.chapter3 { color: var(--accent3); }
@@ -153,31 +143,30 @@ footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
 <footer>© 2025 Vision Study – Apple Vision Pro Style</footer>
 
 <script>
-// HOCHWERTIGE ANIMATION MIT JS
+// Animation für Panels und Kapitel-Titel
 const panels = document.querySelectorAll('.panel');
+const titles = document.querySelectorAll('.chapter-title');
 
-function animatePanels() {
+function revealOnScroll() {
     const windowHeight = window.innerHeight;
     panels.forEach(panel => {
-        const top = panel.getBoundingClientRect().top;
-        if (top < windowHeight - 100) {
+        const panelTop = panel.getBoundingClientRect().top;
+        if (panelTop < windowHeight - 100) {
             panel.style.opacity = 1;
             panel.style.transform = 'translateY(0) scale(1)';
         }
     });
+    titles.forEach(title => {
+        const titleTop = title.getBoundingClientRect().top;
+        if (titleTop < windowHeight - 150) {
+            title.style.opacity = 1;
+            title.style.transform = 'translateY(0)';
+        }
+    });
 }
 
-// Parallax-Effekt für Überschriften
-const chapterTitles = document.querySelectorAll('.chapter-title');
-window.addEventListener('scroll', () => {
-    chapterTitles.forEach(title => {
-        const offset = window.scrollY;
-        title.style.transform = `translateX(${offset * 0.1}px)`; // subtile Bewegung
-    });
-});
-
-window.addEventListener('scroll', animatePanels);
-window.addEventListener('load', animatePanels);
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 </script>
 
 </body>
