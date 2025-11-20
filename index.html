@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snus Studie – Vision Pro Experience</title>
 
 <!-- Google Fonts SF Pro -->
 <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- AOS Animation -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
 <style>
 :root {
@@ -17,45 +14,54 @@
     --text: #f6f7fb;
     --panel-bg: rgba(255,255,255,0.06);
     --glass-border: rgba(255,255,255,0.1);
-    --accent: rgba(80,130,255,0.2);
+    --accent1: #5082ff;
+    --accent2: #ff6b6b;
+    --accent3: #ffa94d;
+    --accent4: #6bcfbb;
 }
+
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background: var(--bg); color: var(--text); font-family:"SF Pro Text",sans-serif; line-height:1.65; overflow-x:hidden; scroll-behavior:smooth; }
 
 /* NAVIGATION */
-nav { position:fixed; top:0; width:100%; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; backdrop-filter:blur(25px); background: rgba(20,20,26,0.45); border-bottom:1px solid var(--glass-border); z-index:1000; }
-nav .menu a { color: var(--text); margin-left:25px; text-decoration:none; opacity:.75; font-weight:500; transition:.3s; }
+nav {
+    position:fixed; top:0; width:100%; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 40px; backdrop-filter:blur(25px); background: rgba(20,20,26,0.45); border-bottom:1px solid var(--glass-border); z-index:1000;
+}
+nav .menu a {
+    color: var(--text); margin-left:25px; text-decoration:none; opacity:.75; font-weight:500; transition:.3s;
+}
 nav .menu a:hover { opacity:1; }
 
 /* HEADER */
 header { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; }
-header h1 { font-size:4rem; font-weight:700; margin-bottom:20px; text-shadow:0 0 30px rgba(80,130,255,0.3); }
+header h1 { font-size:4rem; font-weight:700; margin-bottom:20px; text-shadow:0 0 30px var(--accent1); }
 header p { font-size:1.3rem; opacity:0.8; max-width:650px; }
 
 /* SECTIONS */
 section { max-width:1150px; margin:140px auto; padding:0 20px; position:relative; }
 
 /* PANELS */
-.panel { background: var(--panel-bg); padding:50px; border-radius:35px; backdrop-filter:blur(30px); border:1px solid var(--glass-border); margin-top:40px; box-shadow: inset 0 0 25px rgba(255,255,255,0.05),0 20px 80px rgba(0,0,0,0.4); transition: transform 0.6s ease, opacity 0.6s ease; opacity:0; transform: translateY(60px); }
+.panel {
+    background: var(--panel-bg); padding:50px; border-radius:35px; backdrop-filter:blur(30px); border:1px solid var(--glass-border);
+    margin-top:40px; box-shadow: inset 0 0 25px rgba(255,255,255,0.05),0 20px 80px rgba(0,0,0,0.4);
+    opacity:0; transform: translateY(60px) scale(0.95); transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
 
-/* PANEL ANIMATION */
-.panel.show { opacity:1; transform: translateY(0); }
+/* FARBIGE ÜBERTITEL */
+h2.chapter-title {
+    font-size:2.5rem; margin-bottom:25px; font-weight:700; text-transform:uppercase; text-align:center;
+}
+h2.chapter1 { color: var(--accent1); }
+h2.chapter2 { color: var(--accent2); }
+h2.chapter3 { color: var(--accent3); }
+h2.chapter4 { color: var(--accent4); }
 
-/* HEADINGS */
-h1,h2,h3 { margin-bottom:20px; font-weight:600; color:var(--text);}
+/* HEADINGS & TEXT */
+h3 { margin-bottom:20px; font-weight:600; color:var(--text); }
 p { margin-bottom:15px; color:var(--text); }
-
-/* CARD GRID */
-.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-top:40px; }
-.card { background: var(--panel-bg); border:1px solid var(--glass-border); border-radius:25px; padding:30px; backdrop-filter:blur(25px); transition: transform 0.3s ease; }
-.card:hover { transform: translateY(-6px); }
 
 /* FOOTER */
 footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
-
-/* ACCENT COLORS */
-.accent { color: #5082ff; font-weight:600; }
-
 </style>
 </head>
 
@@ -82,7 +88,7 @@ footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
 <!-- KAPITEL 1 -->
 <section id="kap1">
     <div class="panel">
-        <h2>Kapitel 1: Einführung und Überblick</h2>
+        <h2 class="chapter-title chapter1">Kapitel 1: Einführung und Überblick</h2>
         <p>Snus ist eine Form von rauchfreiem Tabak, meist unter der Oberlippe konsumiert. Die Popularität hat in den letzten Jahrzehnten international zugenommen, auch als vermeintlich „weniger schädliche Alternative“ zu Rauchprodukten.</p>
         <h3>Geschichte</h3>
         <p>Ursprünge in Schweden im 18. Jahrhundert, zunächst Luxusprodukt, später breite Bevölkerung. Pasteurisierung reduziert Nitrosamine, modern vermarktet als Lifestyle-Produkt.</p>
@@ -98,7 +104,7 @@ footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
 <!-- KAPITEL 2 -->
 <section id="kap2">
     <div class="panel">
-        <h2>Kapitel 2: Langzeitfolgen und wissenschaftliche Erkenntnisse</h2>
+        <h2 class="chapter-title chapter2">Kapitel 2: Langzeitfolgen und wissenschaftliche Erkenntnisse</h2>
         <h3>Dauerhafte Abhängigkeit</h3>
         <p>Früher Konsum führt zu dauerhaften Belohnungssystem-Veränderungen im Gehirn, selbst moderate Mengen genügen.</p>
         <h3>Herz-Kreislauf-Risiken</h3>
@@ -109,15 +115,13 @@ footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
         <p>Erhöhte Stressanfälligkeit, Stimmungsschwankungen, Depressionen bei langfristigem Konsum.</p>
         <h3>Epidemiologische Daten</h3>
         <p>20–30% der Jugendlichen konsumieren Snus; langfristige Risiken für orale Erkrankungen, Herz-Kreislauf-Probleme und Abhängigkeit.</p>
-        <h3>Gesellschaftliche Langzeitfolgen</h3>
-        <p>Gesundheitskosten, soziale Belastung, Normalisierung des Nikotinkonsums, Regulierung durch Politik.</p>
     </div>
 </section>
 
 <!-- KAPITEL 3 -->
 <section id="kap3">
     <div class="panel">
-        <h2>Kapitel 3: Psychologische Auswirkungen und Verhalten</h2>
+        <h2 class="chapter-title chapter3">Kapitel 3: Psychologische Auswirkungen und Verhalten</h2>
         <h3>Lernfähigkeit und Aufmerksamkeit</h3>
         <p>Nikotin verändert neuronale Plastizität, beeinträchtigt Lernprozesse, Konzentration und Merkfähigkeit, besonders bei Jugendlichen.</p>
         <h3>Motivation und Belohnungssystem</h3>
@@ -134,7 +138,7 @@ footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
 <!-- KAPITEL 4 -->
 <section id="kap4">
     <div class="panel">
-        <h2>Kapitel 4: Prävention, Politik und Zukunftsperspektiven</h2>
+        <h2 class="chapter-title chapter4">Kapitel 4: Prävention, Politik und Zukunftsperspektiven</h2>
         <h3>Präventionsmaßnahmen</h3>
         <p>Aufklärungskampagnen, Schulprogramme, Beratung für Eltern und Jugendliche; Fokus auf frühe Sensibilisierung.</p>
         <h3>Regulierung und Politik</h3>
@@ -143,29 +147,37 @@ footer { text-align:center; padding:80px 20px; opacity:0.5; font-size:0.9rem; }
         <p>Rauchfreier Tabakkonsum wird normalisiert; Prävention vs. Lifestyle-Trends im Konflikt.</p>
         <h3>Zukunftsperspektiven</h3>
         <p>Weitere Forschung nötig, Fokus auf neuronale Langzeitwirkungen, Abhängigkeitsprävention, öffentliche Gesundheit.</p>
-        <h3>Fazit</h3>
-        <p>Snus ist kein harmloses Produkt; besonders Jugendliche sind gefährdet. Prävention, Regulierung und Aufklärung entscheidend, um gesundheitliche Schäden zu reduzieren.</p>
     </div>
 </section>
 
 <footer>© 2025 Vision Study – Apple Vision Pro Style</footer>
 
-<!-- AOS Script -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init({ duration:1200, easing:'ease-in-out', once:true });
-
-// Panel Scroll Reveal
+// HOCHWERTIGE ANIMATION MIT JS
 const panels = document.querySelectorAll('.panel');
-const revealPanels = () => {
+
+function animatePanels() {
     const windowHeight = window.innerHeight;
     panels.forEach(panel => {
         const top = panel.getBoundingClientRect().top;
-        if(top < windowHeight - 100){ panel.classList.add('show'); }
+        if (top < windowHeight - 100) {
+            panel.style.opacity = 1;
+            panel.style.transform = 'translateY(0) scale(1)';
+        }
     });
-};
-window.addEventListener('scroll', revealPanels);
-window.addEventListener('load', revealPanels);
+}
+
+// Parallax-Effekt für Überschriften
+const chapterTitles = document.querySelectorAll('.chapter-title');
+window.addEventListener('scroll', () => {
+    chapterTitles.forEach(title => {
+        const offset = window.scrollY;
+        title.style.transform = `translateX(${offset * 0.1}px)`; // subtile Bewegung
+    });
+});
+
+window.addEventListener('scroll', animatePanels);
+window.addEventListener('load', animatePanels);
 </script>
 
 </body>
