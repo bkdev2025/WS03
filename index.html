@@ -1,226 +1,427 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studie zu den Auswirkungen von Snus-Konsum</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snus Studie – Apple Style</title>
 
-    <!-- Bootstrap Dark Theme -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.dark.min.css" rel="stylesheet">
+<!-- SF Pro Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- AOS Animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <!-- AOS Animations -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0d1117;
-            color: #e6edf3;
-        }
-        header {
-            background: linear-gradient(145deg, #111827, #1f2937);
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 1px solid #222;
-        }
-        .section-box {
-            background: #161b22;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 55px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.4);
-            border: 1px solid #1e2330;
-        }
-        h2 {
-            color: #58a6ff;
-        }
-        nav {
-            backdrop-filter: blur(10px);
-            background: rgba(20, 21, 26, 0.85) !important;
-            border-bottom: 1px solid #2a2f3a;
-        }
-        footer {
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-            color: #8892a3;
-            border-top: 1px solid #222;
-        }
-        .nav-link {
-            color: #cbd5e1 !important;
-            transition: 0.2s;
-        }
-        .nav-link:hover {
-            color: #58a6ff !important;
-        }
-        .table {
-            color: #cbd5e1;
-        }
-        img {
-            border-radius: 8px;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+/* -----------------------------------
+   GLOBAL APPLE STYLE
+----------------------------------- */
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+    font-family: 'SF Pro Text', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.6s, color 0.6s;
+    overflow-x: hidden;
+    line-height: 1.65;
+}
+
+:root {
+    --bg: #000;
+    --text: #f5f5f7;
+    --card-bg: #111214;
+    --border: rgba(255,255,255,0.07);
+}
+
+.light-mode {
+    --bg: #ffffff;
+    --text: #111;
+    --card-bg: #f2f2f2;
+    --border: rgba(0,0,0,0.08);
+}
+
+/* -----------------------------------
+   NAVIGATION
+----------------------------------- */
+
+nav {
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+    z-index:9999;
+    backdrop-filter:blur(18px);
+    background: rgba(0,0,0,0.45);
+    transition:0.6s;
+    border-bottom:1px solid var(--border);
+}
+
+nav .menu a {
+    margin-left:23px;
+    text-decoration:none;
+    color:var(--text);
+    font-size:14px;
+    opacity:0.75;
+    transition:0.3s;
+}
+
+nav .menu a:hover {
+    opacity:1;
+}
+
+/* Mode Toggle */
+.toggle {
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+}
+
+/* -----------------------------------
+   HERO – PARALLAX
+----------------------------------- */
+
+.hero {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background: radial-gradient(circle at center, #0f0f11 0%, #000 100%);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero h1 {
+    font-size:4.8rem;
+    letter-spacing:-1px;
+}
+
+.hero p {
+    margin-top:20px;
+    font-size:1.4rem;
+    max-width:720px;
+    opacity:0.75;
+}
+
+.hero-parallax {
+    position:absolute;
+    width:650px;
+    height:650px;
+    background:radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    animation:float 12s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    from {transform:translate(-50%,-55%);}
+    to   {transform:translate(-50%,-45%);}
+}
+
+/* -----------------------------------
+   SECTION BASE
+----------------------------------- */
+
+.section {
+    max-width:1100px;
+    margin:140px auto;
+    padding:0 20px;
+}
+
+.section h2 {
+    font-size:2.8rem;
+    margin-bottom:25px;
+}
+
+.section p {
+    font-size:1.15rem;
+}
+
+/* -----------------------------------
+   APPLE 3D PRODUCT MOCKUP
+----------------------------------- */
+
+.mockup-frame {
+    width:100%;
+    height:420px;
+    background:var(--card-bg);
+    border-radius:30px;
+    border:1px solid var(--border);
+    box-shadow:0 30px 60px rgba(0,0,0,0.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:40px;
+    position:relative;
+}
+
+.mockup-inner {
+    width:85%;
+    height:85%;
+    background:#000;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:inset 0 0 40px rgba(0,0,0,0.5);
+    display:flex;
+    color:#888;
+    font-size:1.2rem;
+    align-items:center;
+    justify-content:center;
+}
+
+/* -----------------------------------
+   APPLE CARD GRID
+----------------------------------- */
+
+.card-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card {
+    background:var(--card-bg);
+    border-radius:20px;
+    padding:35px;
+    border:1px solid var(--border);
+    backdrop-filter:blur(8px);
+    transition:0.4s;
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
+}
+
+.card:hover {
+    transform:translateY(-6px);
+}
+
+/* -----------------------------------
+   PRODUCT SCROLL ANIMATION
+----------------------------------- */
+
+.scroll-product {
+    width:100%;
+    height:300px;
+    background:var(--card-bg);
+    margin-top:40px;
+    border-radius:25px;
+    border:1px solid var(--border);
+    opacity:0;
+    transform:translateY(80px);
+    transition:1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-product.show {
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* -----------------------------------
+   FOOTER
+----------------------------------- */
+
+footer {
+    margin-top:140px;
+    text-align:center;
+    opacity:0.5;
+    padding:50px 20px;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#">Snus Studie</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#background">Hintergrund</a></li>
-                <li class="nav-item"><a class="nav-link" href="#goals">Ziele</a></li>
-                <li class="nav-item"><a class="nav-link" href="#methods">Methodik</a></li>
-                <li class="nav-item"><a class="nav-link" href="#results">Ergebnisse</a></li>
-                <li class="nav-item"><a class="nav-link" href="#youth">Jugendkonsum</a></li>
-                <li class="nav-item"><a class="nav-link" href="#sources">Quellen</a></li>
-                <li class="nav-item"><a class="nav-link" href="#fazit">Fazit</a></li>
-            </ul>
-        </div>
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">Snus Studie</div>
+    <div class="menu">
+        <a href="#studie">Studie</a>
+        <a href="#gesundheit">Gesundheit</a>
+        <a href="#jugend">Jugend</a>
+        <a href="#langzeitfolgen">Langzeitfolgen</a>
+        <a href="#gesellschaft">Gesellschaft</a>
+        <a href="#fazit">Fazit</a>
     </div>
+
+    <div class="toggle" id="modeToggle">☀️</div>
 </nav>
 
-<!-- Header -->
-<header data-aos="fade-down">
-    <h1 class="display-5 fw-bold">Studie zu den Auswirkungen von Snus-Konsum</h1>
-    <p class="lead">Eine umfassende, fiktive wissenschaftliche Analyse</p>
-</header>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-parallax"></div>
 
-<div class="container mt-5">
+    <h1 data-aos="fade-up">Snus – Die Unsichtbare Gefahr</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Eine umfassende Untersuchung über Gesundheit, Risiko, 
+       Jugendkonsum & langfristige Folgen – modern, klar und verständlich erklärt.</p>
+</section>
 
-    <!-- Hintergrund -->
-    <section id="background" class="section-box" data-aos="fade-up">
-        <h2>Hintergrund</h2>
-        <p>
-            Snus ist ein rauchfreies Nikotinprodukt, das besonders in nordischen Ländern konsumiert wird.
-            Diese fiktive Studie untersucht gesundheitliche, psychische und soziale Effekte des Konsums 
-            sowie die besonderen Risiken bei Jugendlichen.
-        </p>
-    </section>
+<!-- STUDIE -->
+<section id="studie" class="section" data-aos="fade-up">
+    <h2>Die Studie: Ein vollständiger Überblick</h2>
+    <p>
+        Diese fiktive Studie untersuchte über 12 Monate hinweg 500 Personen verschiedenen Alters,
+        um die gesundheitlichen, psychologischen und sozialen Auswirkungen von Snus umfassend zu verstehen.
+    </p>
 
-    <!-- Ziele -->
-    <section id="goals" class="section-box" data-aos="fade-up">
-        <h2>Ziele der Studie</h2>
-        <ul>
-            <li>Analyse des Konsumverhaltens verschiedener Altersgruppen</li>
-            <li>Bewertung gesundheitlicher Risiken</li>
-            <li>Untersuchung neurologischer und psychischer Effekte</li>
-            <li>Fokus auf langfristige Schäden bei frühem Konsumbeginn</li>
-        </ul>
-    </section>
-
-    <!-- Methodik -->
-    <section id="methods" class="section-box" data-aos="fade-up">
-        <h2>Methodik</h2>
-        <p>Die Studie umfasst 500 Teilnehmer über 12 Monate. Gemessen wurden u.a.:</p>
-
-        <table class="table table-dark table-striped">
-            <tr>
-                <th>Kategorie</th>
-                <th>Messmethode</th>
-            </tr>
-            <tr>
-                <td>Konsumhäufigkeit</td>
-                <td>Wöchentliche Selbstauskunft</td>
-            </tr>
-            <tr>
-                <td>Körperliche Parameter</td>
-                <td>Blutdruck, Puls, Mundgesundheit</td>
-            </tr>
-            <tr>
-                <td>Neurologische Effekte</td>
-                <td>Kognitionstests, Reaktionszeitmessungen</td>
-            </tr>
-            <tr>
-                <td>Psychische Faktoren</td>
-                <td>Stressprofil, Stimmungsschwankungen</td>
-            </tr>
-        </table>
-    </section>
-
-    <!-- Ergebnisse -->
-    <section id="results" class="section-box" data-aos="fade-up">
-        <h2>Ergebnisse (fiktiv)</h2>
-        <p>
-            Erhöhte Herzfrequenz, Blutdruckanstieg und lokale Reizungen sind typische 
-            Kurzzeiteffekte. Die Abhängigkeit steigt mit Nikotinstärke und Konsumdauer.
-        </p>
-
-        <div class="text-center mt-4">
-            <img src="https://via.placeholder.com/700x250?text=Diagramm+Platzhalter" 
-                 class="img-fluid shadow" alt="Diagramm">
+    <div class="mockup-frame" data-aos="zoom-in">
+        <div class="mockup-inner">
+            Datenvisualisierung – Snus Nutzung über 12 Monate
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Jugendkonsum -->
-    <section id="youth" class="section-box" data-aos="fade-up">
-        <h2>Snus-Konsum im Jugendalter – Risiken & Folgen</h2>
+<!-- GESUNDHEIT -->
+<section id="gesundheit" class="section" data-aos="fade-up">
+    <h2>Gesundheitliche Auswirkungen</h2>
 
-        <h4>Mögliche Schäden im Jugendalter</h4>
-        <ul>
-            <li>Starke Abhängigkeitsentwicklung</li>
-            <li>Beeinträchtigte Gehirnentwicklung</li>
-            <li>Schlechtere Konzentration & Lernfähigkeit</li>
-            <li>Zahnfleischrückgang & Mundschleimhautreizungen</li>
-        </ul>
+    <p>
+        Snus wirkt nicht nur lokal im Mundraum – Nikotin beeinflusst nahezu jedes System im Körper.
+    </p>
 
-        <h4 class="mt-4">Langfristige Auswirkungen im Erwachsenenalter</h4>
-        <ul>
-            <li>Dauerhafte Nikotinabhängigkeit</li>
-            <li>Veränderte Stressverarbeitung</li>
-            <li>Erhöhtes Risiko für weitere Suchtmittel</li>
-            <li>Persistierende Zahnfleisch- und Mundschäden</li>
-        </ul>
-    </section>
+    <div class="card-grid">
+        <div class="card">
+            <h3>Kardiovaskuläre Effekte</h3>
+            <p>Erhöhter Blutdruck, Herzrhythmusbeschleunigung & Belastung des Gefäßsystems.</p>
+        </div>
+        <div class="card">
+            <h3>Mundraum</h3>
+            <p>Zahnfleischrückgang, Entzündungen & langfristige Schleimhautveränderungen.</p>
+        </div>
+        <div class="card">
+            <h3>Psychische Effekte</h3>
+            <p>Abhängigkeit, emotionale Schwankungen & Stressveränderungen.</p>
+        </div>
+        <div class="card">
+            <h3>Kognitive Beeinflussung</h3>
+            <p>Veränderung von Aufmerksamkeit, Reaktionszeit & Lernfähigkeit.</p>
+        </div>
+    </div>
 
-    <!-- Quellen -->
-    <section id="sources" class="section-box" data-aos="fade-up">
-        <h2>Fiktive Quellen</h2>
-        <ul>
-            <li>WHO – Report on Nicotine Products (fiktiv)</li>
-            <li>Institut für Suchtforschung Europa – Jahresbericht 2024 (fiktiv)</li>
-            <li>Skandinavisches Gesundheitsinstitut – Langzeitstudie Nikotin (fiktiv)</li>
-        </ul>
-    </section>
+    <div class="scroll-product" id="scrollElement1"></div>
+</section>
 
-    <!-- Fazit -->
-    <section id="fazit" class="section-box" data-aos="fade-up">
-        <h2>Fazit</h2>
-        <p>
-            Snus kann gesundheitliche und psychische Auswirkungen haben, 
-            besonders bei frühem Konsumbeginn. Die Studie zeigt mögliche Risiken, 
-            ersetzt jedoch keine reale wissenschaftliche Forschung.
-        </p>
-    </section>
+<!-- JUGEND -->
+<section id="jugend" class="section" data-aos="fade-up">
+    <h2>Warum Jugendliche besonders gefährdet sind</h2>
 
-</div>
+    <p>
+        Das Gehirn Jugendlicher befindet sich in einer kritischen Entwicklungsphase – Nikotin greift
+        in diese Prozesse tief ein und verursacht Veränderungen, die im Erwachsenenalter sichtbar werden.
+    </p>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3>Schnelle Abhängigkeitsentwicklung</h3>
+            <p>Jugendliche entwickeln deutlich schneller ein Suchtverhalten als Erwachsene.</p>
+        </div>
+        <div class="card">
+            <h3>Neuroplastische Veränderungen</h3>
+            <p>Nikotin verändert Synapsen, Motivation, Impulskontrolle und Entscheidungsverhalten.</p>
+        </div>
+        <div class="card">
+            <h3>Soziale Normalisierung</h3>
+            <p>Snus wirkt „stylisch“, was das Risiko erheblich steigert.</p>
+        </div>
+    </div>
+
+    <div class="scroll-product" id="scrollElement2"></div>
+</section>
+
+<!-- LANGZEIT -->
+<section id="langzeitfolgen" class="section" data-aos="fade-up">
+    <h2>Langzeitfolgen im Erwachsenenalter</h2>
+
+    <p>
+        Frühzeitiger Konsum führt zu tiefgreifenden Veränderungen in Stressverhalten, Suchtkreisläufen
+        und dem Mundraum – oft dauerhaft.
+    </p>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3>Chronische Abhängigkeit</h3>
+            <p>Früher Konsum = höheres Risiko lebenslanger Nikotinabhängigkeit.</p>
+        </div>
+        <div class="card">
+            <h3>Veränderte Stresssysteme</h3>
+            <p>Nikotin formt die Stressverarbeitung dauerhaft um.</p>
+        </div>
+        <div class="card">
+            <h3>Langfristige Mundschäden</h3>
+            <p>Dauerhafte Schleimhautprobleme, Zahnfleischabbau und Schäden.</p>
+        </div>
+    </div>
+
+    <div class="scroll-product" id="scrollElement3"></div>
+</section>
+
+<!-- GESELLSCHAFT -->
+<section id="gesellschaft" class="section" data-aos="fade-up">
+    <h2>Gesellschaftliche Faktoren</h2>
+
+    <p>
+        Snus wird immer mehr als Modeprodukt verbreitet – stylische Verpackungen, moderne Marken,
+        Influencer-Marketing. Dies macht das Produkt attraktiv für Jugendliche.
+    </p>
+
+    <div class="mockup-frame">
+        <div class="mockup-inner">
+            Visuelle Darstellung moderner Snus-Produkte
+        </div>
+    </div>
+</section>
+
+<!-- FAZIT -->
+<section id="fazit" class="section" data-aos="fade-up">
+    <h2>Fazit</h2>
+    <p>
+        Snus ist kein harmloses Lifestyle-Produkt. Die gesundheitlichen, psychischen und sozialen Risiken
+        sind erheblich – besonders für Jugendliche. Diese Seite soll aufklären und Bewusstsein schaffen.
+    </p>
+</section>
 
 <footer>
-    © 2025 Fiktives Forschungsinstitut – Beispielseite
+    © 2025 Fiktives Forschungsinstitut – Apple Style Webseite
 </footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- AOS Library -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
 <script>
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
+AOS.init();
+
+/* Dark-/Light Mode Toggle */
+let toggle = document.getElementById("modeToggle");
+toggle.onclick = () => {
+    document.body.classList.toggle("light-mode");
+    toggle.innerHTML = document.body.classList.contains("light-mode") ? "🌙" : "☀️";
+};
+
+/* Scroll Animations for Product Blocks */
+function scrollReveal(id) {
+    const el = document.getElementById(id);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+        el.classList.add("show");
+    }
+}
+window.addEventListener("scroll", () => {
+    scrollReveal("scrollElement1");
+    scrollReveal("scrollElement2");
+    scrollReveal("scrollElement3");
+});
 </script>
 
 </body>
